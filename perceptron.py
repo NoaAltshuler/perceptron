@@ -15,7 +15,8 @@ class Perceptron:
                 calc = self.weights_ @ np.transpose(pair[0])
                 pred = -1 if calc <0 else 1
                 self.weights_ = np.subtract(self.weights_, (pair[1]-pred)/2*pair[0])
-        return True //stam
+        return True
+        #stam
 
 
 
