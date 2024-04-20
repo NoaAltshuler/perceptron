@@ -29,7 +29,7 @@ class Perceptron:
             if pred == gt:
                 count_true+=1
             i+=1
-        return count_true/y.shape[0]*100
+        return count_true/y.shape[0]
 
 
 
