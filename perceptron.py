@@ -1,5 +1,6 @@
 import numpy as np
 import statsmodels.tools as sm
+import pandas as pd
 
 
 class Perceptron:
@@ -9,14 +10,14 @@ class Perceptron:
     def fit(self, x, y):
         x= sm.add_constant(x)
         self.weights_ = np.zeros(x.shape[1])
-        d = [(row,val)for row,val in zip(x,y)]
         for i in range(0,100):
-            for pair in d:
-                calc = self.weights_ @ np.transpose(pair[0])
+            i=0
+            for gt in y:
+                calc = self.weights_ @ np.transpose(x.iloc[i,:])
                 pred = -1 if calc <0 else 1
-                self.weights_ = np.subtract(self.weights_, (pair[1]-pred)/2*pair[0])
+                self.weights_ = np.subtract(self.weights_, (gt-pred)/2*x-x.iloc[i,:])
         return True
-        #stam
+
 
 
 
